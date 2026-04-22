@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+venv/
+.env
+Logs/
+instance/
+*.db
+*.csv
+*.log
+.DS_Store
+MindReader/instance/
+MindReader/mind_reader.db
