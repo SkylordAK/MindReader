@@ -128,8 +128,6 @@ class MindReader:
         color = 'green' if flow else 'black'
         self.state_text.set_text(f"Mood: {mood}\nEngagement: {engagement:.2f}\nFlow: {'🔥 YES 🔥' if flow else 'no'}")
         self.state_text.set_color(color)
-        
-        self.state_text.set_color(color)
         self.fig.canvas.draw_idle()
         plt.pause(0.01)
 

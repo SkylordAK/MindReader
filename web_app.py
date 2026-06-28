@@ -6,6 +6,7 @@ No-Build Architecture (CDN-based Frontend).
 
 import asyncio
 import json
+import os
 import numpy as np
 import threading
 import time
@@ -44,7 +45,7 @@ BANDS = {
 
 # ──────────────────────── DATABASE & AUTH ────────────────
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'mind-reader-secret-key-123'
+app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', 'change-me-in-production')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mind_reader.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
@@ -261,10 +262,6 @@ class MindState:
             if self.log_counter >= 5: # Adjusted for 0.2s steps to ~1s
                 self.log_to_db(metrics)
                 self.log_counter = 0
-
-        return metrics
-
-        return metrics
 
         return metrics
 
